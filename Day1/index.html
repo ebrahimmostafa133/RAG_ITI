@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet AI | Next-Gen Culinary Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <div class="logo">
+                    <i data-lucide="utensils-crosses"></i>
+                    GOURMET AI
+                </div>
+                <div class="hero-preview">
+                    <img src="chef_hero.png" alt="Chef Assistant">
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <div class="control-group">
+                    <span class="label">Kitchen Intelligence</span>
+                    <select id="modelSelect">
+                        <option value="gpt-5-mini">GPT-5 Mini (Elite)</option>
+                        <option value="o4-mini">o4 Mini (Strategic)</option>
+                        <option value="gpt-4.1-nano">GPT-4.1 Nano (Snappy)</option>
+                        <option value="gpt-5-nano">GPT-5 Nano (Ultra-Fast)</option>
+                        <option value="gpt-image-1-mini">GPT Image 1 (Visual)</option>
+                        <option value="gpt-audio-mini">GPT Audio (Voice)</option>
+                        <option value="gpt-realtime-mini">GPT Realtime (Live)</option>
+                        <option value="davinci-002">Davinci 002 (Legacy)</option>
+                        <option value="babbage-002">Babbage 002 (Legacy)</option>
+                        <option value="text-embedding-3-small">Embeddings 3</option>
+                        <option value="tts-1">TTS 1 (Text-to-Speech)</option>
+                        <option value="whisper-1">Whisper 1 (Speech-to-Text)</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <span class="label">Culinary Flair</span>
+                    <input type="range" id="creativityRange" min="0" max="1" step="0.1" value="0.7">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); padding: 0 4px;">
+                        <span>Classical</span>
+                        <span>Avant-garde</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <span class="label">Response Texture</span>
+                    <select id="responseDepth">
+                        <option value="concise">Snappy Orders</option>
+                        <option value="detailed" selected>Full Masterclass</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-section" style="margin-top: auto;">
+                <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; background: var(--bg-input); padding: 1rem; border-radius: 12px; border: 1px solid var(--glass-border);">
+                    <i data-lucide="shield-check" style="width: 14px; height: 14px; margin-bottom: 4px;"></i><br>
+                    Connected to Gourmet Server Securely
+                </p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="status-badge">
+                    <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+                    <span id="currentModelName">GPT-5 Mini</span>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn" id="themeToggle">
+                        <i data-lucide="sun"></i>
+                    </button>
+                    <button class="btn btn-primary" id="clearChat">
+                        <i data-lucide="plus-circle"></i>
+                        New Session
+                    </button>
+                </div>
+            </header>
+
+            <div class="chat-area" id="chatHistory">
+                <!-- Messages will be injected here -->
+            </div>
+
+            <footer class="action-bar">
+                <div class="input-container">
+                    <input type="text" id="userInput" placeholder="Ask anything, from pantry checks to plating tips..." autocomplete="off">
+                    <button class="btn btn-primary btn-icon" id="sendBtn">
+                        <i data-lucide="send"></i>
+                    </button>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
